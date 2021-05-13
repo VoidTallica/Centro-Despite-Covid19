@@ -1,0 +1,40 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Criar Pedido</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="createPedidoForm" (ngSubmit)="createPedido()">
+            <div class="mb-3">
+              <label >Veio pelo SNS24?</label>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="sns"  value=true class="form-check-input">
+                <label class="form-check-label">Sim</label>
+              </div>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="sns" value=false class="form-check-input">
+                <label class="form-check-label">Não</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label >Estado atual</label>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="presente"  value=true class="form-check-input">
+                <label class="form-check-label">Infetado</label>
+              </div>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="presente" value=false class="form-check-input">
+                <label class="form-check-label">Não Infetado</label>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center">
+              <button class="btn btn-primary mr-1">Criar</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

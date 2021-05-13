@@ -1,0 +1,21 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title"> {{user.nome}}</h2>
+        <hr>
+        <p class="card-text"> Morada : {{user.morada}} </p>
+        <p class="card-text"> Codigo Postal : {{user.codigoPostal}}</p>
+        <p class="card-text"> Telemovel :  {{user.nTelemovel}}</p>
+        <p class="card-text"> Idade : {{user.idade}}</p>
+        <p class="card-text"> Genero : {{user.genero}}</p>
+        <p class="card-text"> Email : {{user.email}}</p>
+      </div>
+      <div class="card-footer">
+         <button  routerLink="/user/update" type="button" value="Call Function" class="btn btn-primary">Edit</button>
+        <hr>
+         <button (click)="deleteUser()" type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

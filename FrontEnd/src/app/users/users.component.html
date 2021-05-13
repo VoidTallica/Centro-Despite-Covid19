@@ -1,0 +1,22 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let user of users">
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title"> {{user.nome}}</h2>
+        <hr>
+        <p class="card-text"> Morada : {{user.morada}} </p>
+        <p class="card-text"> Codigo Postal : {{user.codigoPostal}}</p>
+        <p class="card-text"> Telemovel :  {{user.nTelemovel}}</p>
+        <p class="card-text"> Idade : {{user.idade}}</p>
+        <p class="card-text"> Genero : {{user.genero}}</p>
+        <p class="card-text"> Email : {{user.email}}</p>
+        <p class="card-text"> Historico : {{user.historico}}</p>
+      </div>
+      <div class="card-footer">
+        <button (click)="deleteUser(user._id)" type="button" class="btn btn-primary">Delete</button>
+        <hr>
+        <button (click)="setIdTeste(user._id)" routerLink="/tech/edit/teste" class="btn btn-primary" >Adicionar Teste</button>
+      </div>
+    </div>
+  </div>
+</div>

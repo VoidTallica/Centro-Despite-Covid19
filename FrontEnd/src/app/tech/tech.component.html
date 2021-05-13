@@ -1,0 +1,16 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title"> {{tech.nome}}</h2>
+        <hr>
+        <p class="card-text"> Email : {{tech.email}}</p>
+      </div>
+      <div class="card-footer">
+         <button  routerLink="/tech/update" type="button" value="Call Function" class="btn btn-primary">Edit</button>
+        <hr>
+         <button (click)="deleteTech()" type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

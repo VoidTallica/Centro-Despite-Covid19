@@ -1,0 +1,42 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Adicionar Teste</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="createTesteForm" (ngSubmit)="testUpdate()">
+          <div class="form-group">
+            <label>Id User</label>
+            <input formControlName="userID"  type="text" class="form-control">
+            <div *ngIf="isSubmitted && f.userID.errors" class="invalid-feedback" [ngClass]="{ 'is-invalid': isSubmitted && f.userID.errors }">
+              <div *ngIf="f.userID.errors.required">ID do utilizador é necessário</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label>Resultado</label>
+            <div class="form-check">
+              <input type="radio" formControlName="resultado" value="true" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.resultado.errors }">
+              <label class="form-check-label">Positivo</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" formControlName="resultado" value="false" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.resultado.errors }">
+              <label class="form-check-label">Negativo</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" formControlName="data" class="form-control rounded-0" required [ngClass]="{ 'is-invalid': isSubmitted && f.data.errors }">
+            <div *ngIf="isSubmitted && f.data.errors" class="invalid-feedback" [ngClass]="{ 'is-invalid': isSubmitted && f.data.errors }">
+              <div *ngIf="f.data.errors.required">Data é necessária</div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary mr-1">Criar</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

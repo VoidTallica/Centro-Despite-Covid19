@@ -1,0 +1,22 @@
+<div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let request of requests">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 class="card-title"> Pedido </h2>
+          <hr>
+          <p class="card-text"> Id Utilizador : {{request.user._id}} </p>
+          <p class="card-text"> Nome Utilizador : {{request.user.nome}} </p>
+          <p class="card-text"> Sns : {{request.sns}}</p>
+          <p class="card-text"> Estado Utente :  {{request.presente}}</p>
+          <p class="card-text"> resultadoClinico : {{request.resultadoClinico}}</p>
+        </div>
+        <div class="card-footer">
+          <form name="form">
+            <input class="form-control-file" (change)="uploadFile(request.user._id, $event)" type="file">
+          </form>
+          <hr>
+          <button (click)="deletePedido(request._id)" type="button" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

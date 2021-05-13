@@ -1,0 +1,35 @@
+<div>
+  <div class="card mt-5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title">Casos Positivos</h1>
+        <hr>
+        <h2 class="card-text">{{positivos}}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title">Numero de Testes Realizados</h1>
+        <hr>
+        <h2 class="card-text">{{testes}}</h2>
+        <input [(ngModel)]="id" type="text" name="user" id="user">
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="userTestes()">Obter Testes Realizados</button>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title">Numero de Testes Realizados num dia</h1>
+        <hr>
+        <h2 class="card-text">{{testes_data}}</h2>
+        <input [(ngModel)]="data" type="date" name="data" id="data">
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="casosDia()">Obter Testes Realizados</button>
+      </div>
+    </div>
+  </div>
+</div>

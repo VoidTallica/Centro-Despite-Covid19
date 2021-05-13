@@ -1,0 +1,8 @@
+{
+    "env":{
+        "MONGO_ATLAS_PW": "arvore",
+        "JWT_KEY_USER": "user key",
+        "JWT_KEY_TECH": "tech key",
+        "JWT_KEY_ADMIN": "admin key"
+    }
+}

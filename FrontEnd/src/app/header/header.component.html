@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" routerLink="/home">Centro de Despiste Felgueiras</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/user" routerLinkActive="active" *ngIf="getRole() == 'User'"  >Utilizador <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/tech" routerLinkActive="active" *ngIf="getRole() == 'Tech'">Técnico <span class="sr-only">(current)</span></a>
+        </li>
+      <li class="nav-item active">
+      <a class="nav-link" routerLink="/users" routerLinkActive="active" *ngIf="getRole() == 'Tech' || getRole() == 'Admin'">Utilizadores <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/techs" routerLinkActive="active" *ngIf="getRole() == 'Admin'">Técnicos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/requests" routerLinkActive="active" *ngIf="getRole() == 'Tech' || getRole() == 'Admin'">Pedidos <span class="sr-only">(current)</span></a>
+        </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/requests/create" routerLinkActive="active" *ngIf="getRole() == 'User'"> Criar Pedido <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/user/requests" routerLinkActive="active" *ngIf="getRole() == 'User'"> Pedidos Utilizador <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin/createTech" routerLinkActive="active" *ngIf="getRole() == 'Admin'">Criar Técnico <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/tech/edit/teste" routerLinkActive="active" *ngIf="getRole() == 'Tech'">Adicionar Teste <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin/estatistica" routerLinkActive="active" *ngIf="getRole() == 'Admin'">Estatistíca<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf= !isLoggedIn() >Login</a>
+        <a class="nav-link" routerLink="/register" routerLinkActive="active" *ngIf= !isLoggedIn() >Registar</a>
+        <a class="nav-link" routerLink="/user/changepw" routerLinkActive="active" *ngIf= isLoggedIn() >Mudar Password</a>
+        <a (click) = "logout()" type = "button" class="nav-link" *ngIf= isLoggedIn() >Logout</a>
+
+    </ul>
+  </div>
+</nav>

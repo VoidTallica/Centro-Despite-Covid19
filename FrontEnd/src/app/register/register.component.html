@@ -1,0 +1,116 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Register</h3>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" formControlName="nome" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.nome.errors }" />
+            <div *ngIf="isSubmitted && f.nome.errors" class="invalid-feedback">
+              <div *ngIf="f.nome.errors.required">Nome é necessário</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Morada</label>
+            <input type="text" formControlName="morada" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.morada.errors }" />
+            <div *ngIf="isSubmitted && f.morada.errors" class="invalid-feedback">
+              <div *ngIf="f.morada.errors.required">Morada é necessária</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Codigo Postal</label>
+            <input type="number" formControlName="codigoPostal" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.codigoPostal.errors }" />
+            <div *ngIf="isSubmitted && f.codigoPostal.errors" class="invalid-feedback">
+              <div *ngIf="f.codigoPostal.errors.required">Codigo Postal é necessário</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Numero de Telemovel</label>
+            <input type="tel" pattern="\d{9}$" formControlName="nTelemovel" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.nTelemovel.errors }" />
+            <div *ngIf="isSubmitted && f.nTelemovel.errors" class="invalid-feedback">
+              <div *ngIf="f.nTelemovel.errors.pattern"> O número de telemóvel deve conter 9 digitos</div>
+              <div *ngIf="f.nTelemovel.errors.required">Codigo Postal é necessário</div>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <label for="">Idade</label>
+            <input type="number" formControlName="idade" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.idade.errors }" />
+            <div *ngIf="isSubmitted && f.idade.errors" class="invalid-feedback">
+              <div *ngIf="f.idade.errors.required">Idade é necessária</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>Genero</label>
+            <div class="form-group form-check">
+              <input type="radio" formControlName="genero" value="Masculino" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.genero.errors }">
+              <label class="form-check-label">Masculino</label>
+            </div>
+            <div class="form-group form-check">
+              <input type="radio" formControlName="genero" value="Feminino" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.genero.errors }">
+              <label class="form-check-label">Feminino</label>
+            </div>
+            <div class="form-group form-check">
+              <input type="radio" formControlName="genero" value="Outro" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.genero.errors }">
+              <label class="form-check-label">Outro</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>Historico do User</label>
+            <div class="form-group form-check">
+              <input type="radio" formControlName="historico" value=true class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.historico.errors }">
+              <label class="form-control-label">Infetado</label>
+            </div>
+            <div class="form-group form-check">
+              <input type="radio" formControlName="historico" value=false class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && f.historico.errors }">
+              <label class="form-check-label">Não Infetado</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.email.errors }" />
+            <div *ngIf="isSubmitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email é necessário</div>
+              <div *ngIf="f.email.errors.email">Email deve ser válido</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.password.errors }" />
+            <div *ngIf="isSubmitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password é necessária</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Confirmar Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.confirmPassword.errors }" />
+            <div *ngIf="isSubmitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Confirmar Password é necessário</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords devem ser iguais</div>
+            </div>
+          </div>
+        
+        <div class="text-center">
+          <button class="btn btn-primary mr-1">Register</button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

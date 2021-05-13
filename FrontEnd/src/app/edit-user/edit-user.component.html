@@ -1,0 +1,74 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Editar Utilizador</h3>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMsg">
+          {{errorMsg}}
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editUserForm" (ngSubmit)="userComponentFunction()">
+            
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" formControlName="nome" class="form-control"/>
+            </div>
+            
+            <div class="form-group">
+              <label for="">Morada</label>
+              <input type="text" formControlName="morada" class="form-control" />  
+            </div>
+            
+            <div class="form-group">
+              <label for="">Codigo Postal</label>
+              <input type="number" formControlName="codigoPostal" class="form-control" /> 
+            </div>
+            
+            <div class="form-group">
+              <label for="">Numero de Telemovel</label>
+              <input type="tel" pattern="\d{9}$" formControlName="nTelemovel" class="form-control" [ngClass]="{ 'is-invalid': f.nTelemovel.errors }"/>
+              <div *ngIf="isSubmitted && f.nTelemovel.errors" class="invalid-feedback">
+                <div *ngIf="f.nTelemovel.errors.pattern"> O número de telemóvel deve conter 9 digitos</div>
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label for="">Idade</label>
+              <input type="text" formControlName="idade" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <label>Genero</label>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="genero" value="Masculino" class="form-check-input" >
+                <label class="form-check-label">Masculino</label>
+              </div>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="genero" value="Feminino" class="form-check-input" >
+                <label class="form-check-label">Feminino</label>
+              </div>
+              <div class="form-group form-check">
+                <input type="radio" formControlName="genero" value="Outro" class="form-check-input" >
+                <label class="form-check-label">Outro</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.errors }"/>
+              <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.email">Email deve ser válido</div>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button class="btn btn-primary mr-1">Editar</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
