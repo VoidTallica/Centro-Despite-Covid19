@@ -1,6 +1,6 @@
 Projeto Centro-Despite-Covid19
 
-Projeto desenvolvido por https://github.com/MasterOzOz e https://github.com/VoidTallica
+Projeto desenvolvido por https://github.com/Oz0nO e https://github.com/VoidTallica
 
 Página incial com gráficos de casos no mundo e em Portugal.
 
